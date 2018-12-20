@@ -1,3 +1,15 @@
 // Global app controller
+import axios from 'axios';
 
-// The changes were pushed using git push orgin master, I probably want create any brances for this project. Also I am just learning. ily. ttyl.
+async function getResults(query) {
+  const key = '3f070dc8c31f57e4ec74a471b1452f6f';
+  try {
+    const res = await axios(`https://www.food2fork.com/api/search?key=${key}&q=${query}`);
+    const recipes = res.data.recipes;
+    console.log(recipes);
+  } catch (error) {
+    alert(error);
+  }
+
+}
+getResults('tomato pasta');
